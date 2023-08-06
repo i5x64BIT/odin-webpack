@@ -1,14 +1,13 @@
 export default function(){
-    const aboutPage = document.createElement('div')
+    const aboutPage = document.createElement('div');
+    aboutPage.classList = 'about-content';
     aboutPage.innerHTML = `
-        <div class="home-content">
-            <h2>Haswell's Origins</h2>
-            <img src="/" alt="Founders Image">
-            <p>We are in the business since 1948 <br>
-            Our eastern food is delivered and consumed all over the globe.
-            Small business to large corporations, everyone deserves to enjoy some of <em>Haswell's</em> occasionally
-            </p>
-        </div>
+        <h2>Haswell's Origins</h2>
+        <img src="/" alt="Founders Image">
+        <p>We are in the business since 1948 <br>
+        Our eastern food is delivered and consumed all over the globe.
+        Small business to large corporations, everyone deserves to enjoy some of <em>Haswell's</em> occasionally
+        </p>
     `;
     return aboutPage;
 }

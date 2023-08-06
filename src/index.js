@@ -2,15 +2,12 @@ import homePage from './home.js'
 import aboutPage from './about.js'
 import menuPage from './menu.js'
 
-const headder = document.createElement('div');
-headder.classList = '.header';
+const headder = document.querySelector('.header');
 
 const title = document.createElement('h1');
 title.innerText = 'This is my generated title';
 
-const contentContainer = document.body.querySelector('.content-container')
 headder.appendChild(title);
-contentContainer.appendChild(headder);
 
 const nav = document.createElement('nav');
 nav.appendChild(document.createElement('ul'));
@@ -27,21 +24,28 @@ nav.firstChild.appendChild(menu);
 nav.firstChild.appendChild(about);
 headder.appendChild(nav);
 
+const contentContainer = document.querySelector('.content-container')
 let currentPage = homePage(); // Landing page
 contentContainer.appendChild(currentPage);
 
 about.addEventListener('click',() => {
+    nav.firstChild.childNodes.forEach(e => e.removeAttribute('selected'))
+    about.setAttribute('selected', '');
     contentContainer.removeChild(currentPage);
     currentPage = aboutPage();
     contentContainer.appendChild(currentPage);
 })
 
 home.addEventListener('click',() => {
+    nav.firstChild.childNodes.forEach(e => e.removeAttribute('selected'))
+    home.setAttribute('selected', '');
     contentContainer.removeChild(currentPage);
     currentPage = homePage();
     contentContainer.appendChild(currentPage);
 })
 menu.addEventListener('click',() => {
+    nav.firstChild.childNodes.forEach(e => e.removeAttribute('selected'));
+    menu.setAttribute('selected', '');
     contentContainer.removeChild(currentPage);
     currentPage = menuPage();
     contentContainer.appendChild(currentPage);
